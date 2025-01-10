@@ -29,10 +29,21 @@
                     cartItems.push(productDetails);
                     localStorage.setItem("cartItems", JSON.stringify(cartItems));
 
-                    alert("Item added to the cart!");
+                    // Push event to data layer
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    event: "addToCart",
+                    ecommerce: {
+                        items: [
+                            {
+                                name: productDetails.name,
+                                price: productDetails.price
+                            }
+                        ]
+                    }
                 });
-            });
-        });
+ 
+                console.log("Add to cart event pushed:", productDetails);
 //datalayer
 	    window.digitalData = window.digitalData || {};
 	    
