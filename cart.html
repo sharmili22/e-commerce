@@ -67,6 +67,17 @@
         }
     </style>
     <script>
+        
+//datalayer 
+	    window.digitalData = window.digitalData || {};
+window.digitalData.page = {
+	pageInfo: {
+	    pageName: window.document.title,
+	    pageUrl: window.location.href,
+	    pagePath: window.location.pathname
+	}
+};
+    
         document.addEventListener("DOMContentLoaded", function () {
             let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
             const tbody = document.querySelector("tbody");
