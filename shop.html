@@ -9,34 +9,10 @@
     <script src="https://kit.fontawesome.com/f30fac2c61.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap" rel="stylesheet">
 	//script for datalayer is added here 
-    <script> 
-	     // Push event to data layer
-                window.dataLayer = window.dataLayer || [];
-                window.dataLayer.push({
-                    event: "addToCart",
-                    ecommerce: {
-                        items: [
-                            {
-                                name: productDetails.name,
-                                price: productDetails.price
-                            }
-                        ]
-                    }
-                });
- 
-                console.log("Add to cart event pushed:", productDetails);
-//datalayer
-	    window.digitalData = window.digitalData || {};
-	    
-window.digitalData.page = {
-	pageInfo: {
-	    pageName: window.document.title,
-	    pageUrl: window.location.href,
-	    pagePath: window.location.pathname
-	}
-};
-    </script>
+   
     <script>
+	    window.dataLayer = window.dataLayer || [];
+
         document.addEventListener("DOMContentLoaded", function () {
             const cartIcons = document.querySelectorAll(".cart");
 
@@ -55,6 +31,18 @@ window.digitalData.page = {
                     let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
                     cartItems.push(productDetails);
                     localStorage.setItem("cartItems", JSON.stringify(cartItems));
+			 // Push event to dataLayer
+            window.dataLayer.push({
+                event: "addToCart",
+                ecommerce: {
+                    items: [
+                        {
+                            name: productDetails.name,
+                            price: productDetails.price
+                        }
+                    ]
+                }
+            });
     </script>
 </head>
 
