@@ -8,28 +8,9 @@
     <link rel="stylesheet" href="css/index2.css">
     <script src="https://kit.fontawesome.com/f30fac2c61.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap" rel="stylesheet">
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const cartIcons = document.querySelectorAll(".cart");
-
-            cartIcons.forEach((icon, index) => {
-                icon.addEventListener("click", function (event) {
-                    event.preventDefault();
-
-                    const product = this.closest(".pro");
-                    const productDetails = {
-                        image: product.querySelector("img").src,
-                        name: product.querySelector("h5").textContent,
-                        price: product.querySelector("h4").textContent
-                    };
-
-                    // Add product details to localStorage
-                    let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-                    cartItems.push(productDetails);
-                    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-
-                    // Push event to data layer
+	//script for datalayer is added here 
+    <script> 
+	     // Push event to data layer
                 window.dataLayer = window.dataLayer || [];
                 window.dataLayer.push({
                     event: "addToCart",
@@ -54,6 +35,26 @@ window.digitalData.page = {
 	    pagePath: window.location.pathname
 	}
 };
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cartIcons = document.querySelectorAll(".cart");
+
+            cartIcons.forEach((icon, index) => {
+                icon.addEventListener("click", function (event) {
+                    event.preventDefault();
+
+                    const product = this.closest(".pro");
+                    const productDetails = {
+                        image: product.querySelector("img").src,
+                        name: product.querySelector("h5").textContent,
+                        price: product.querySelector("h4").textContent
+                    };
+
+                    // Add product details to localStorage
+                    let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+                    cartItems.push(productDetails);
+                    localStorage.setItem("cartItems", JSON.stringify(cartItems));
     </script>
 </head>
 
