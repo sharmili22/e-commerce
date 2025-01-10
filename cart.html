@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="css/index2.css">
+    <style>
+        #cart {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .cart-products {
+            width: 65%;
+        }
+
+        .cart-products table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .cart-products table th,
+        .cart-products table td {
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .cart-products img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .cart-summary {
+            width: 30%;
+            border: 1px solid #ddd;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+        }
+
+        .cart-summary h3 {
+            margin-bottom: 20px;
+        }
+
+        .cart-summary button {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .cart-summary button:hover {
+            background: #0056b3;
+        }
+
+        .delete-btn {
+            color: red;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+            const tbody = document.querySelector("tbody");
+            const totalCostElement = document.querySelector(".cart-summary h3 span");
+
+            function updateCartDisplay() {
+                tbody.innerHTML = "";
+                let totalCost = 0;
+
+                cartItems.forEach((item, index) => {
+                    const row = document.createElement("tr");
+
+                    row.innerHTML = `
+                        <td><img src="${item.image}" alt="${item.name}"></td>
+                        <td>${item.name}</td>
+                        <td>${item.price}</td>
+                        <td>1</td>
+                        <td>${item.price}</td>
+                        <td><span class="delete-btn" data-index="${index}">Delete</span></td>
+                    `;
+
+                    tbody.appendChild(row);
+
+                    totalCost += parseFloat(item.price.replace("$", ""));
+                });
+
+                totalCostElement.textContent = `$${totalCost.toFixed(2)}`;
+            }
+
+            function deleteItem(index) {
+                cartItems.splice(index, 1);
+                localStorage.setItem("cartItems", JSON.stringify(cartItems));
+                updateCartDisplay();
+            }
+
+            tbody.addEventListener("click", function (e) {
+                if (e.target.classList.contains("delete-btn")) {
+                    const index = e.target.getAttribute("data-index");
+                    deleteItem(index);
+                }
+            });
+
+            updateCartDisplay();
+        });
+    </script>
+</head>
+
+<body>
+    <section id="cart" class="section-p1">
+        <div class="cart-products">
+            <h2>Your Cart</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Cart items will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="cart-summary">
+            <h3>Total: <span>$0.00</span></h3>
+            <button>Proceed to Checkout</button>
+        </div>
+    </section>
+</body>
+
+</html>

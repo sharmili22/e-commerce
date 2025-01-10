@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="stylesheet" href="css/index2.css">
+    <script src="https://kit.fontawesome.com/f30fac2c61.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap" rel="stylesheet">
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cartIcons = document.querySelectorAll(".cart");
+
+            cartIcons.forEach((icon, index) => {
+                icon.addEventListener("click", function (event) {
+                    event.preventDefault();
+
+                    const product = this.closest(".pro");
+                    const productDetails = {
+                        image: product.querySelector("img").src,
+                        name: product.querySelector("h5").textContent,
+                        price: product.querySelector("h4").textContent
+                    };
+
+                    // Add product details to localStorage
+                    let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+                    cartItems.push(productDetails);
+                    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+                    alert("Item added to the cart!");
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <section id="product1" class="section-p1">
+        <h2>Featured Products</h2>
+        <p>Formula 1 season 2024 collection</p>
+        <div class="pro-container">
+            <!-- Example Product -->
+            <div class="pro">
+                <img src="image/image1.png" alt="Ferrari T-shirt">
+                <div class="des">
+                    <span>Ferrari</span>
+                    <h5>T-shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$120</h4>
+                </div>
+                <a href="#" class="cart"><i class="fal fa-shopping-cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="image/image2.png" alt="">
+                <div class="des">
+                    <span>Ferrari</span>
+                    <h5>T-shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$120</h4>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="image/image3.png" alt="">
+                <div class="des">
+                    <span>Ferrari</span>
+                    <h5>T-shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$120</h4>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="image/image4.png" alt="">
+                <div class="des">
+                    <span>Ferrari</span>
+                    <h5>T-shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$120</h4>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="image/image5.png" alt="">
+                <div class="des">
+                    <span>Ferrari</span>
+                    <h5>T-shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$120</h4>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="image/image6.png" alt="">
+                <div class="des">
+                    <span>Ferrari</span>
+                    <h5>T-shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$120</h4>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="image7.png" alt="">
+                <div class="des">
+                    <span>Ferrari</span>
+                    <h5>T-shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$120</h4>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="image8.png" alt="">
+                <div class="des">
+                    <span>Ferrari</span>
+                    <h5>T-shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$120</h4>
+                </div>
+                <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
