@@ -33,6 +33,16 @@
                 });
             });
         });
+//datalayer
+	    window.digitalData = window.digitalData || {};
+	    
+window.digitalData.page = {
+	pageInfo: {
+	    pageName: window.document.title,
+	    pageUrl: window.location.href,
+	    pagePath: window.location.pathname
+	}
+};
     </script>
 </head>
 
