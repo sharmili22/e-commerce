@@ -14,7 +14,51 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Catamaran:wght@200&family=Courgette&family=Edu+TAS+Beginner:wght@700&family=Lato:wght@300;900&family=Mukta:wght@700&family=Mulish:wght@300&family=Open+Sans&family=PT+Sans:ital,wght@1,700&family=Piedra&family=Poppins:wght@300&family=Raleway:wght@100&family=Roboto&family=Roboto+Condensed:wght@700&family=Roboto+Slab&display=swap"
         rel="stylesheet">
+    <script>
+window.digitalData = {
 
+	page: {
+
+	    pageName: document.title,
+
+	    pageUrl:window.location.href,
+
+	    pagePath: window.location.pathname	
+
+	};
+
+	events: []
+
+}
+ 
+ 
+document.addEventListener("click", function(event){
+
+	const clickedElement = event.target;
+
+	window.digitalData.events.push({
+
+	       event: "click",
+
+		 element: {
+
+			type: clickedElement.tagName.toLowerCase(),
+
+			id: clickedElement.id ||| "N/A",
+
+			text: clickedElement.innerText || "N/A"
+
+			};
+
+		 timestamp: new Date().toISOString()
+ 
+});
+ 
+	console.log("Click Event Captured:", window.digital.events
+
+});
+    </script>
+ 
 
 </head>
 
