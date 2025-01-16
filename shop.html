@@ -15,7 +15,7 @@
 	
    
     <script>
-	    window.dataLayer = window.dataLayer || {};
+	    window.dataLayer = window.dataLayer || [];
     </script>
     <script>
 
@@ -38,15 +38,22 @@
                     cartItems.push(productDetails);
                     localStorage.setItem("cartItems", JSON.stringify(cartItems));
 			 // Push event to dataLayer
-            window.dataLayer={
+            const eventObject={
                 event: "addToCart",
 		items:cartItems.map(item=>({
 			    name: item.name,
                             price: item.price
 			}))};
+			window.dataLayer.eventData=eventObject;
+			if(!window.dataLayer.events){
+				window.dataLayer.events=[];
+			}
+			window.dataLayer.events.push(eventObject);
 			alert(`${productDetails.name} has been added to your cart!`);
 			     )};
-            });
+	});
+		});
+            
             </script>
 </head>
 
