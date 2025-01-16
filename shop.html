@@ -40,16 +40,14 @@
 			 // Push event to dataLayer
             window.dataLayer={
                 event: "addToCart",
-                ecommerce: {
-			items: {
-			    name: productDetails.name,
-                            price: productDetails.price
-			}}});
+		items:cartItems.map(item=>({
+			    name: item.name,
+                            price: item.price
+			}))}};
 			alert(`${productDetails.name} has been added to your cart!`);
 			     });
             });
-        });
-    </script>
+            </script>
 </head>
 
 <body>
