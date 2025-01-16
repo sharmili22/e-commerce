@@ -15,7 +15,7 @@
 	
    
     <script>
-	    window.dataLayer = window.dataLayer || [];
+	    window.dataLayer = window.dataLayer || {};
     </script>
     <script>
 
@@ -38,13 +38,13 @@
                     cartItems.push(productDetails);
                     localStorage.setItem("cartItems", JSON.stringify(cartItems));
 			 // Push event to dataLayer
-            window.dataLayer.push({
+            window.dataLayer={
                 event: "addToCart",
                 ecommerce: {
-			items: [{
+			items: {
 			    name: productDetails.name,
                             price: productDetails.price
-			}]}});
+			}}});
 			alert(`${productDetails.name} has been added to your cart!`);
 			     });
             });
