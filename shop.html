@@ -41,11 +41,10 @@
             window.dataLayer.push({
                 event: "addToCart",
                 ecommerce: {
-			items: [
+			items: [{
 			    name: productDetails.name,
                             price: productDetails.price
-                        ]}})                
-            };
+			}]});
 			alert(`${productDetails.name} has been added to your cart!`);
 			     });
             });
