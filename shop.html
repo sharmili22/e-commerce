@@ -15,7 +15,7 @@
 	
    
     <script>
-	    window.dataLayer = window.dataLayer || {};
+	    window.dataLayer = window.dataLayer || [];
     </script>
     <script>
 
@@ -41,9 +41,10 @@
             window.dataLayer.push({
                 event: "addToCart",
                 ecommerce: {
+			items: [
 			    name: productDetails.name,
                             price: productDetails.price
-                        })                
+                        ]}})                
             };
 			alert(`${productDetails.name} has been added to your cart!`);
 			     });
