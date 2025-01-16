@@ -38,13 +38,12 @@
                     cartItems.push(productDetails);
                     localStorage.setItem("cartItems", JSON.stringify(cartItems));
 			 // Push event to dataLayer
-            window.dataLayer={
+            window.dataLayer.push({
                 event: "addToCart",
-                cart: cartItems.map(item=>(
-                        {
-                            name: productDetails.name,
+                ecommerce: {
+			    name: productDetails.name,
                             price: productDetails.price
-                        }))                
+                        })                
             };
 			alert(`${productDetails.name} has been added to your cart!`);
 			     });
