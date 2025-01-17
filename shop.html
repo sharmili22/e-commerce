@@ -43,13 +43,13 @@
 			const productCount= Object.keys(window.dataLayer.cart["Products"]).length;
 			const productId=`Product${productCount+1}`;
 			if(!window.dataLayer.cart["Products"][productId]){
-				windows.dataLayer.cart["Products"][productId]={
-				Name: productDetails.name;
-				Price: productDetails.price;
-				Quantity:1;
+				window.dataLayer.cart["Products"][productId]={
+				Name: productDetails.name,
+				Price: productDetails.price,
+				Quantity: 1
 				};}
 			else{
-			windows.dataLayer.cart["Products"][productId].Quantity+=1;
+			window.dataLayer.cart["Products"][productId].Quantity+=1;
 			}
 		    const total =Object.values(window.dataLayer.cart["Products"]).reduce((sum,product)=>sum+product.Quantity,0);
 		    window.dataLayer.cart["Total number of products"]=total;
