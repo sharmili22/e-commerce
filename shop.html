@@ -19,10 +19,10 @@
     </script>
     <script>
 	    function trackNavigationClick(section){
-				//window.dataLayer=window.dataLayer["Page"] || {};
+				
 		    		window.dataLayer.push({
 					pageName:section,
-					pageURL: document.href
+					pageURL: document.location.href
 				});
 			}
 
@@ -55,8 +55,8 @@
 				Price: productDetails.price,
 			};
 		
-		    //const total =Object.values(window.dataLayer.cart["Products"]).reduce((sum,product)=>sum+product.Quantity,0);
-		    window.dataLayer.cart["Total number of products"]=productCount;
+		    const total =Object.keys(window.dataLayer.cart["Products"]).length;
+		    window.dataLayer.cart["Total number of products"]=total;
 				
             
 			alert(`${productDetails.name} has been added to your cart!`);
