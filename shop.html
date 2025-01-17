@@ -19,10 +19,11 @@
     </script>
     <script>
 	    function trackNavigationClick(section){
-				window.dataLayer["Page"]=window.dataLayer["Page"] || {};
-		    		window.dataLayer["Page"]={
-					pageName:section
-				};
+				//window.dataLayer=window.dataLayer["Page"] || {};
+		    		window.dataLayer.push({
+					pageName:section,
+					pageURL: document.href
+				});
 			}
 
         document.addEventListener("DOMContentLoaded", function () {
