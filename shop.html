@@ -55,8 +55,8 @@
 				Price: productDetails.price,
 			};
 		
-		    const total =Object.values(window.dataLayer.cart["Products"]).reduce((sum,product)=>sum+product.Quantity,0);
-		    window.dataLayer.cart["Total number of products"]=total;
+		    //const total =Object.values(window.dataLayer.cart["Products"]).reduce((sum,product)=>sum+product.Quantity,0);
+		    window.dataLayer.cart["Total number of products"]=productCount;
 				
             
 			alert(`${productDetails.name} has been added to your cart!`);
