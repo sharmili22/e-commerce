@@ -38,12 +38,7 @@
                     cartItems.push(productDetails);
                     localStorage.setItem("cartItems", JSON.stringify(cartItems));
 			 // Push event to dataLayer
-			if (!window.dataLayer.cartItems) {
-                    window.dataLayer.cartItems = [];
-                }
-
-                // Add the product to the cartItems array in the dataLayer
-                window.dataLayer.cartItems.push(productDetails);
+			window.dataLayer.cartItems=cartItems;
             
 			alert(`${productDetails.name} has been added to your cart!`);
 		});
