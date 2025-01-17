@@ -16,15 +16,12 @@
    
     <script>
 	    window.dataLayer = window.dataLayer || {};
-    </script>
-    <script>
-	    function trackNavigationClick(section){
-				
 		    		window.dataLayer["Page"]={
-					pageName:section,
+					pageName:document.title,
 					pageURL: document.location.href
 				};
-			}
+    </script>
+    <script>			
 
         document.addEventListener("DOMContentLoaded", function () {
             const cartIcons = document.querySelectorAll(".cart");
