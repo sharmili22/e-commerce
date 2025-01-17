@@ -20,10 +20,10 @@
     <script>
 	    function trackNavigationClick(section){
 				
-		    		window.dataLayer.push({
+		    		window.dataLayer["Page"]={
 					pageName:section,
 					pageURL: document.location.href
-				});
+				};
 			}
 
         document.addEventListener("DOMContentLoaded", function () {
