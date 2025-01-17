@@ -18,6 +18,12 @@
 	    window.dataLayer = window.dataLayer || {};
     </script>
     <script>
+	    function trackNavigationClick(section){
+				window.dataLayer["Page"]=window.dataLayer["Page"] || {};
+		    		window.dataLayer["Page"]={
+					pageName:section;
+				};
+			}
 
         document.addEventListener("DOMContentLoaded", function () {
             const cartIcons = document.querySelectorAll(".cart");
@@ -38,11 +44,7 @@
                     cartItems.push(productDetails);
                     localStorage.setItem("cartItems", JSON.stringify(cartItems));
 			 // Push event to dataLayer
-			function trackNavigationClick(section){
-				window.dataLayer["Page"]={
-					pageName:section
-				};
-			}
+			
 			window.dataLayer.cart=window.dataLayer.cart || {};
 			window.dataLayer.cart["Products"]=window.dataLayer.cart["Products"] || {};
 			const productCount= Object.keys(window.dataLayer.cart["Products"]).length;
