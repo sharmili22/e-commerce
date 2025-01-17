@@ -16,10 +16,7 @@
    
     <script>
 	    window.dataLayer = window.dataLayer || {};
-		    		window.dataLayer["Page"]={
-					pageName:document.title,
-					pageURL: document.location.href
-				};
+		    		
     </script>
     <script>			
 
@@ -42,7 +39,10 @@
                     cartItems.push(productDetails);
                     localStorage.setItem("cartItems", JSON.stringify(cartItems));
 			 // Push event to dataLayer
-			
+			window.dataLayer["Page"]={
+					pageName:document.title,
+					pageURL: document.location.href
+				};
 			window.dataLayer.cart=window.dataLayer.cart || {};
 			window.dataLayer.cart["Products"]=window.dataLayer.cart["Products"] || {};
 			const productCount= Object.keys(window.dataLayer.cart["Products"]).length;
