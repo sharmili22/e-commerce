@@ -51,7 +51,7 @@
 			else{
 			windows.dataLayer.cart["Products"][productId].Quantity+=1;
 			}
-		    const total =Object.values(window.dataLayer.cart["Products"].reduce((sum,product)=>sum+product.Quantity,0);
+		    const total =Object.values(window.dataLayer.cart["Products"]).reduce((sum,product)=>sum+product.Quantity,0);
 		    window.dataLayer.cart["Total number of products"]=total;
 				
             
