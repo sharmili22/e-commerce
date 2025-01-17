@@ -38,11 +38,7 @@
                     cartItems.push(productDetails);
                     localStorage.setItem("cartItems", JSON.stringify(cartItems));
 			 // Push event to dataLayer
-			window.dataLayer.cart={
-				cart:{
-		    		productName: productDetails.name,
-				productPrice: productDetails.price
-				}};
+			window.dataLayer.cartItems=cartItems;
             /*const eventObject={
                 event: "addToCart",
 		items:cartItems.map(item=>({
